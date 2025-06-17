@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Lumière Restaurant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'gold': '#D4AF37',
+                        'gold-light': '#F7E7A3',
+                        'charcoal': '#2D2D2D',
+                        'warm-white': '#FEFCF8',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-warm-white text-charcoal">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="font-playfair text-2xl font-bold text-charcoal">Lumière</h1>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Home</a>
+                        <a href="menu.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Menu</a>
+                        <a href="about.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">About</a>
+                        <a href="gallery.html" class="nav-link text-gold font-medium">Gallery</a>
+                        <a href="reservation.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Reservations</a>
+                        <a href="contact.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-charcoal hover:text-gold focus:outline-none focus:text-gold">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Home</a>
+                <a href="menu.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Menu</a>
+                <a href="about.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">About</a>
+                <a href="gallery.html" class="block px-3 py-2 text-gold font-medium">Gallery</a>
+                <a href="reservation.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Reservations</a>
+                <a href="contact.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-warm-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-playfair text-5xl md:text-6xl font-bold text-charcoal mb-6">
+                Gallery
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                A visual journey through our culinary artistry, elegant ambiance, and memorable moments
+            </p>
+        </div>
+    </section>
+
+    <!-- Gallery Filter -->
+    <section class="py-8 bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center space-x-2 overflow-x-auto">
+                <button onclick="filterGallery('all')" class="gallery-filter px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap bg-gold text-white">All</button>
+                <button onclick="filterGallery('dishes')" class="gallery-filter px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap text-charcoal hover:bg-gray-100">Dishes</button>
+                <button onclick="filterGallery('interior')" class="gallery-filter px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap text-charcoal hover:bg-gray-100">Interior</button>
+                <button onclick="filterGallery('events')" class="gallery-filter px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap text-charcoal hover:bg-gray-100">Events</button>
+                <button onclick="filterGallery('chef')" class="gallery-filter px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap text-charcoal hover:bg-gray-100">Chef at Work</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+                
+                <!-- Dishes -->
+                <div class="gallery-item dishes cursor-pointer group" onclick="openModal(this)">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=600&q=80" 
+                             alt="Signature Truffle Risotto" 
+                             class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-semibold">View Details</span>
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-lg font-semibold mt-3">Signature Truffle Risotto</h3>
+                    <p class="text-gray-600 text-sm">Arborio rice with black truffle and aged parmesan</p>
+                </div>
+
+                <!-- Interior -->
+                <div class="gallery-item interior cursor-pointer group" onclick="openModal(this)">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=600&q=80" 
+                             alt="Main Dining Room" 
+                             class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-semibold">View Details</span>
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-lg font-semibold mt-3">Main Dining Room</h3>
+                    <p class="text-gray-600 text-sm">Elegant atmosphere with sophisticated design</p>
+                </div>
+
+                <!-- Events -->
+                <div class="gallery-item events cursor-pointer group" onclick="openModal(this)">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=600&q=80" 
+                             alt="Private Event Setup" 
+                             class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-semibold">View Details</span>
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-lg font-semibold mt-3">Private Event Setup</h3>
+                    <p class="text-gray-600 text-sm">Customized arrangements for special occasions</p>
+                </div>
+
+                <!-- Chef at Work -->
+                <div class="gallery-item chef cursor-pointer group" onclick="openModal(this)">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&w=600&q=80" 
+                             alt="Chef Antoine in Kitchen" 
+                             class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-semibold">View Details</span>
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-lg font-semibold mt-3">Chef Antoine at Work</h3>
+                    <p class="text-gray-600 text-sm">Culinary artistry in action</p>
+                </div>
+
+                <!-- More Dishes -->
+                <div class="gallery-item dishes cursor-pointer group" onclick="openModal(this)">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" 
+                             alt="Wagyu Beef Tenderloin" 
+                             class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-semibold">View Details</span>
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-lg font-semibold mt-3">Wagyu Beef Tenderloin</h3>
+                    <p class="text-gray-600 text-sm">Grade A5 wagyu with seasonal vegetables</p>
+                </div>
+
+                <!-- Interior -->
+                <div class="gallery-item interior cursor-pointer group" onclick="openModal(this)">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=600&q=80" 
+                             alt="Private Dining Room" 
+                             class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-semibold">View Details</span>
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-lg font-semibold mt-3">Private Dining Room</h3>
+                    <p class="text-gray-600 text-sm">Intimate space for special gatherings</p>
+                </div>
+
+                <!-- More items... -->
+                <div class="gallery-item dishes cursor-pointer group" onclick="openModal(this)">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=600&q=80" 
+                             alt="Chocolate Soufflé" 
+                             class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-semibold">View Details</span>
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-lg font-semibold mt-3">Chocolate Soufflé</h3>
+                    <p class="text-gray-600 text-sm">Valrhona chocolate with vanilla ice cream</p>
+                </div>
+
+                <div class="gallery-item events cursor-pointer group" onclick="openModal(this)">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=600&q=80" 
+                             alt="Wine Tasting Event" 
+                             class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-semibold">View Details</span>
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-lg font-semibold mt-3">Wine Tasting Event</h3>
+                    <p class="text-gray-600 text-sm">Monthly sommelier-guided experiences</p>
+                </div>
+
+                <div class="gallery-item chef cursor-pointer group" onclick="openModal(this)">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&w=600&q=80" 
+                             alt="Kitchen Team" 
+                             class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-semibold">View Details</span>
+                        </div>
+                    </div>
+                    <h3 class="font-playfair text-lg font-semibold mt-3">Our Kitchen Team</h3>
+                    <p class="text-gray-600 text-sm">Passionate chefs creating culinary magic</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="imageModal" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full">
+            <button onclick="closeModal()" class="absolute -top-12 right-0 text-white hover:text-gold text-2xl z-10">
+                ✕
+            </button>
+            <img id="modalImage" src="" alt="" class="w-full h-auto rounded-lg">
+            <div class="bg-white p-6 rounded-b-lg">
+                <h3 id="modalTitle" class="font-playfair text-2xl font-bold mb-2"></h3>
+                <p id="modalDescription" class="text-gray-600"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-charcoal text-white">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold mb-6">
+                Experience It Yourself
+            </h2>
+            <p class="text-xl mb-8 text-gray-300">
+                Join us for an unforgettable dining experience that you'll want to share.
+            </p>
+            <a href="reservation.html" class="bg-gold hover:bg-gold/90 text-charcoal px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 inline-block">
+                Make Reservation
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-playfair text-2xl font-bold mb-4">Lumière</h3>
+                    <p class="text-gray-300 mb-4">Experience culinary excellence in the heart of the city.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="menu.html" class="hover:text-gold transition-colors">Menu</a></li>
+                        <li><a href="reservation.html" class="hover:text-gold transition-colors">Reservations</a></li>
+                        <li><a href="about.html" class="hover:text-gold transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-gold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>123 Gourmet Street</li>
+                        <li>New York, NY 10001</li>
+                        <li>(555) 123-4567</li>
+                        <li>hello@lumiere.com</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Hours</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Monday - Thursday: 5:30 PM - 10:00 PM</li>
+                        <li>Friday - Saturday: 5:30 PM - 11:00 PM</li>
+                        <li>Sunday: 5:00 PM - 9:30 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 Lumière Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const filters = document.querySelectorAll('.gallery-filter');
+            
+            // Reset filter styles
+            filters.forEach(filter => {
+                filter.classList.remove('bg-gold', 'text-white');
+                filter.classList.add('text-charcoal', 'hover:bg-gray-100');
+            });
+            
+            // Highlight active filter
+            event.target.classList.add('bg-gold', 'text-white');
+            event.target.classList.remove('text-charcoal', 'hover:bg-gray-100');
+            
+            // Show/hide items
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        
+        function openModal(element) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            
+            const img = element.querySelector('img');
+            const title = element.querySelector('h3').textContent;
+            const description = element.querySelector('p').textContent;
+            
+            modalImage.src = img.src;
+            modalImage.alt = img.alt;
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

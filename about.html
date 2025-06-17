@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Lumière Restaurant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'gold': '#D4AF37',
+                        'gold-light': '#F7E7A3',
+                        'charcoal': '#2D2D2D',
+                        'warm-white': '#FEFCF8',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-warm-white text-charcoal">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="font-playfair text-2xl font-bold text-charcoal">Lumière</h1>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Home</a>
+                        <a href="menu.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Menu</a>
+                        <a href="about.html" class="nav-link text-gold font-medium">About</a>
+                        <a href="gallery.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Gallery</a>
+                        <a href="reservation.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Reservations</a>
+                        <a href="contact.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-charcoal hover:text-gold focus:outline-none focus:text-gold">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Home</a>
+                <a href="menu.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Menu</a>
+                <a href="about.html" class="block px-3 py-2 text-gold font-medium">About</a>
+                <a href="gallery.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Gallery</a>
+                <a href="reservation.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Reservations</a>
+                <a href="contact.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-warm-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-playfair text-5xl md:text-6xl font-bold text-charcoal mb-6">
+                Our Story
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                A journey of culinary passion, innovation, and the pursuit of gastronomic excellence
+            </p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="font-playfair text-4xl font-bold mb-6 text-charcoal">The Birth of Lumière</h2>
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        Founded in 2015 by renowned chef Antoine Dubois, Lumière was born from a vision to create an
+                        extraordinary dining experience that would illuminate the senses. Our name, meaning "light" in French,
+                        represents our commitment to bringing brightness and innovation to the culinary world.
+                    </p>
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        What started as a dream in a small Parisian kitchen has evolved into a destination for food
+                        enthusiasts from around the globe. Every dish tells a story, every ingredient is carefully sourced,
+                        and every meal is crafted with the passion that defines our culinary philosophy.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Today, Lumière stands as a beacon of gastronomic excellence, where tradition meets innovation,
+                        and where every guest becomes part of our continuing story.
+                    </p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=800&q=80" 
+                         alt="Restaurant interior" 
+                         class="w-full rounded-2xl shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chef Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-charcoal mb-4">
+                    Meet Our Executive Chef
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    The visionary behind our culinary masterpieces
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="lg:order-2">
+                    <img src="https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&w=800&q=80" 
+                         alt="Chef Antoine Dubois" 
+                         class="w-full rounded-2xl shadow-lg">
+                </div>
+                <div class="lg:order-1">
+                    <h3 class="font-playfair text-3xl font-bold mb-4 text-charcoal">Chef Antoine Dubois</h3>
+                    <p class="text-gold font-semibold mb-4">Executive Chef & Founder</p>
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        With over 20 years of culinary excellence, Chef Antoine Dubois brings a wealth of experience from
+                        some of the world's most prestigious kitchens. Trained at Le Cordon Bleu Paris and having worked
+                        alongside Michelin-starred chefs across Europe, Antoine's philosophy centers on respecting ingredients
+                        while pushing creative boundaries.
+                    </p>
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        His innovative approach combines classical French techniques with modern presentation and global
+                        influences, creating dishes that are both visually stunning and explosively flavorful.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center">
+                            <span class="font-semibold text-charcoal mr-2">Awards:</span>
+                            <span class="text-gray-600">James Beard Rising Chef Award 2018</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="font-semibold text-charcoal mr-2">Recognition:</span>
+                            <span class="text-gray-600">Michelin Star 2019, 2020, 2021</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="font-semibold text-charcoal mr-2">Featured:</span>
+                            <span class="text-gray-600">Food & Wine "Best Chefs in America"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-charcoal mb-4">
+                    Our Culinary Team
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Meet the talented individuals who bring our vision to life
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4"></div>
+                    <h3 class="font-playfair text-xl font-semibold text-center mb-2">Marie Laurent</h3>
+                    <p class="text-gold text-center font-medium mb-3">Sous Chef</p>
+                    <p class="text-gray-600 text-center text-sm">
+                        Specializing in pastry and dessert creations with 12 years of fine dining experience.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4"></div>
+                    <h3 class="font-playfair text-xl font-semibold text-center mb-2">James Rodriguez</h3>
+                    <p class="text-gold text-center font-medium mb-3">Sommelier</p>
+                    <p class="text-gray-600 text-center text-sm">
+                        Master sommelier with expertise in wine pairings and rare vintage selections.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4"></div>
+                    <h3 class="font-playfair text-xl font-semibold text-center mb-2">Sofia Chen</h3>
+                    <p class="text-gold text-center font-medium mb-3">Head of Service</p>
+                    <p class="text-gray-600 text-center text-sm">
+                        Ensures every guest experience is flawless with attention to detail and personalized service.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="py-20 bg-charcoal text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold mb-6">
+                    Our Philosophy
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Every element of our restaurant reflects our commitment to excellence and innovation
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold mb-3">Seasonal Excellence</h3>
+                    <p class="text-gray-300">
+                        We work exclusively with seasonal ingredients at their peak, ensuring every dish captures the essence of nature's timing.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold mb-3">Sustainable Sourcing</h3>
+                    <p class="text-gray-300">
+                        Our partnerships with local farms and sustainable suppliers ensure the finest quality while supporting our community.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold mb-3">Innovation & Tradition</h3>
+                    <p class="text-gray-300">
+                        We honor classic techniques while embracing modern innovation, creating a bridge between culinary heritage and future.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-charcoal mb-4">
+                    Recognition & Awards
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Our commitment to excellence has been recognized by industry leaders
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-2xl text-center shadow-sm">
+                    <div class="text-gold text-4xl mb-4">★</div>
+                    <h3 class="font-playfair text-lg font-semibold mb-2">Michelin Star</h3>
+                    <p class="text-gray-600 text-sm">2019, 2020, 2021, 2022</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl text-center shadow-sm">
+                    <div class="text-gold text-4xl mb-4">🏆</div>
+                    <h3 class="font-playfair text-lg font-semibold mb-2">James Beard Award</h3>
+                    <p class="text-gray-600 text-sm">Outstanding Restaurant 2020</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl text-center shadow-sm">
+                    <div class="text-gold text-4xl mb-4">🍽️</div>
+                    <h3 class="font-playfair text-lg font-semibold mb-2">AAA Five Diamond</h3>
+                    <p class="text-gray-600 text-sm">Consistently since 2018</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl text-center shadow-sm">
+                    <div class="text-gold text-4xl mb-4">📰</div>
+                    <h3 class="font-playfair text-lg font-semibold mb-2">Wine Spectator</h3>
+                    <p class="text-gray-600 text-sm">Grand Award Winner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-playfair text-2xl font-bold mb-4">Lumière</h3>
+                    <p class="text-gray-300 mb-4">Experience culinary excellence in the heart of the city.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="menu.html" class="hover:text-gold transition-colors">Menu</a></li>
+                        <li><a href="reservation.html" class="hover:text-gold transition-colors">Reservations</a></li>
+                        <li><a href="about.html" class="hover:text-gold transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-gold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>123 Gourmet Street</li>
+                        <li>New York, NY 10001</li>
+                        <li>(555) 123-4567</li>
+                        <li>hello@lumiere.com</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Hours</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Monday - Thursday: 5:30 PM - 10:00 PM</li>
+                        <li>Friday - Saturday: 5:30 PM - 11:00 PM</li>
+                        <li>Sunday: 5:00 PM - 9:30 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 Lumière Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,24 +1,319 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>gourmet-front-end-design</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumière - Fine Dining Restaurant</title>
+    <meta name="description" content="Experience exceptional fine dining at Lumière - where culinary artistry meets elegant ambiance">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'gold': '#D4AF37',
+                        'gold-light': '#F7E7A3',
+                        'charcoal': '#2D2D2D',
+                        'warm-white': '#FEFCF8',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-warm-white text-charcoal">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="font-playfair text-2xl font-bold text-charcoal">Lumière</h1>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Home</a>
+                        <a href="menu.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Menu</a>
+                        <a href="about.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">About</a>
+                        <a href="gallery.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Gallery</a>
+                        <a href="reservation.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Reservations</a>
+                        <a href="contact.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Contact</a>
+                    </div>
+                </div>
 
-    <meta property="og:title" content="gourmet-front-end-design" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-charcoal hover:text-gold focus:outline-none focus:text-gold">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Home</a>
+                <a href="menu.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Menu</a>
+                <a href="about.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">About</a>
+                <a href="gallery.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Gallery</a>
+                <a href="reservation.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Reservations</a>
+                <a href="contact.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=2000&q=80" 
+                 alt="Fine dining atmosphere" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+            <h1 class="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+                Welcome to Lumière
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 font-light max-w-2xl mx-auto animate-fade-in" style="animation-delay: 0.3s">
+                Where culinary artistry meets exceptional dining. Experience flavors that illuminate your senses.
+            </p>
+            <div class="space-x-4 animate-fade-in" style="animation-delay: 0.6s">
+                <a href="reservation.html" class="bg-gold hover:bg-gold/90 text-charcoal px-8 py-3 rounded-full font-semibold transition-all duration-300 inline-block">
+                    Make Reservation
+                </a>
+                <a href="menu.html" class="border-2 border-white text-white hover:bg-white hover:text-charcoal px-8 py-3 rounded-full font-semibold transition-all duration-300 inline-block">
+                    View Menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-charcoal mb-4">
+                    Experience Excellence
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Every detail crafted to perfection, every moment designed to delight
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center group">
+                    <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-gold/20 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold mb-3">Michelin-Star Quality</h3>
+                    <p class="text-gray-600">Award-winning cuisine prepared by world-renowned chefs using the finest ingredients</p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-gold/20 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold mb-3">Elegant Atmosphere</h3>
+                    <p class="text-gray-600">Sophisticated ambiance designed for intimate dining and special celebrations</p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-gold/20 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold mb-3">Impeccable Service</h3>
+                    <p class="text-gray-600">Personalized attention and seamless service that exceeds every expectation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Dishes -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-charcoal mb-4">
+                    Signature Creations
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Discover our most celebrated dishes, crafted with passion and precision
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=600&q=80" 
+                         alt="Truffle Risotto" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-semibold mb-2">Truffle Risotto</h3>
+                        <p class="text-gray-600 mb-4">Arborio rice with black truffle, aged parmesan, and fresh herbs</p>
+                        <span class="text-gold font-semibold text-lg">$42</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=600&q=80" 
+                         alt="Wagyu Beef" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-semibold mb-2">Wagyu Tenderloin</h3>
+                        <p class="text-gray-600 mb-4">Grade A5 wagyu with seasonal vegetables and red wine reduction</p>
+                        <span class="text-gold font-semibold text-lg">$85</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=600&q=80" 
+                         alt="Chocolate Soufflé" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-semibold mb-2">Chocolate Soufflé</h3>
+                        <p class="text-gray-600 mb-4">Valrhona chocolate with vanilla bean ice cream and gold leaf</p>
+                        <span class="text-gold font-semibold text-lg">$18</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="menu.html" class="bg-charcoal hover:bg-charcoal/90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 inline-block">
+                    View Full Menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-charcoal mb-4">
+                    What Our Guests Say
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-2xl">
+                    <div class="flex mb-4">
+                        <span class="text-gold text-2xl">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"An absolutely extraordinary dining experience. Every dish was a masterpiece, and the service was impeccable."</p>
+                    <div class="font-semibold">— Sarah Chen</div>
+                    <div class="text-sm text-gray-500">Food Critic, Gourmet Magazine</div>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-2xl">
+                    <div class="flex mb-4">
+                        <span class="text-gold text-2xl">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Lumière has redefined fine dining for me. The attention to detail and flavors are simply unmatched."</p>
+                    <div class="font-semibold">— Michael Rodriguez</div>
+                    <div class="text-sm text-gray-500">Executive Chef, Le Bernardin</div>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-2xl">
+                    <div class="flex mb-4">
+                        <span class="text-gold text-2xl">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Perfect for our anniversary celebration. The ambiance, food, and service created an unforgettable evening."</p>
+                    <div class="font-semibold">— Emma Thompson</div>
+                    <div class="text-sm text-gray-500">Regular Guest</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-charcoal text-white">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold mb-6">
+                Reserve Your Table
+            </h2>
+            <p class="text-xl mb-8 text-gray-300">
+                Join us for an unforgettable culinary journey. Book your table today.
+            </p>
+            <a href="reservation.html" class="bg-gold hover:bg-gold/90 text-charcoal px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 inline-block">
+                Make Reservation
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-playfair text-2xl font-bold mb-4">Lumière</h3>
+                    <p class="text-gray-300 mb-4">Experience culinary excellence in the heart of the city.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="menu.html" class="hover:text-gold transition-colors">Menu</a></li>
+                        <li><a href="reservation.html" class="hover:text-gold transition-colors">Reservations</a></li>
+                        <li><a href="about.html" class="hover:text-gold transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-gold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>123 Gourmet Street</li>
+                        <li>New York, NY 10001</li>
+                        <li>(555) 123-4567</li>
+                        <li>hello@lumiere.com</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Hours</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Monday - Thursday: 5:30 PM - 10:00 PM</li>
+                        <li>Friday - Saturday: 5:30 PM - 11:00 PM</li>
+                        <li>Sunday: 5:00 PM - 9:30 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 Lumière Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <style>
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fade-in 0.8s ease-out forwards;
+            opacity: 0;
+        }
+    </style>
+</body>
 </html>

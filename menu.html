@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Lumière Restaurant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'gold': '#D4AF37',
+                        'gold-light': '#F7E7A3',
+                        'charcoal': '#2D2D2D',
+                        'warm-white': '#FEFCF8',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-warm-white text-charcoal">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="font-playfair text-2xl font-bold text-charcoal">Lumière</h1>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Home</a>
+                        <a href="menu.html" class="nav-link text-gold font-medium">Menu</a>
+                        <a href="about.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">About</a>
+                        <a href="gallery.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Gallery</a>
+                        <a href="reservation.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Reservations</a>
+                        <a href="contact.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-charcoal hover:text-gold focus:outline-none focus:text-gold">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Home</a>
+                <a href="menu.html" class="block px-3 py-2 text-gold font-medium">Menu</a>
+                <a href="about.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">About</a>
+                <a href="gallery.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Gallery</a>
+                <a href="reservation.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Reservations</a>
+                <a href="contact.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-warm-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-playfair text-5xl md:text-6xl font-bold text-charcoal mb-6">
+                Our Menu
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Discover our carefully curated selection of dishes, each crafted with the finest ingredients and innovative techniques
+            </p>
+        </div>
+    </section>
+
+    <!-- Menu Categories -->
+    <section class="py-4 bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center space-x-2 overflow-x-auto">
+                <button onclick="showCategory('appetizers')" class="menu-tab px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap bg-gold text-white">Appetizers</button>
+                <button onclick="showCategory('mains')" class="menu-tab px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap text-charcoal hover:bg-gray-100">Main Courses</button>
+                <button onclick="showCategory('desserts')" class="menu-tab px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap text-charcoal hover:bg-gray-100">Desserts</button>
+                <button onclick="showCategory('beverages')" class="menu-tab px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap text-charcoal hover:bg-gray-100">Beverages</button>
+                <button onclick="showCategory('wine')" class="menu-tab px-6 py-2 rounded-full font-medium transition-all duration-300 whitespace-nowrap text-charcoal hover:bg-gray-100">Wine</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Content -->
+    <section class="py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Appetizers -->
+            <div id="appetizers" class="menu-category">
+                <h2 class="font-playfair text-4xl font-bold text-center mb-12 text-charcoal">Appetizers</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Oysters Rockefeller</h3>
+                            <span class="text-gold font-semibold text-lg">$24</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Fresh Blue Point oysters with spinach, herbs, and hollandaise</p>
+                        <span class="text-sm text-gray-500">Contains: shellfish, dairy</span>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Foie Gras Terrine</h3>
+                            <span class="text-gold font-semibold text-lg">$32</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">House-made terrine with brioche toast and fig compote</p>
+                        <span class="text-sm text-gray-500">Contains: gluten, dairy</span>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Tuna Tartare</h3>
+                            <span class="text-gold font-semibold text-lg">$28</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Yellowfin tuna with avocado, citrus, and sesame crisps</p>
+                        <span class="text-sm text-gray-500">Contains: fish, sesame</span>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Burrata & Prosciutto</h3>
+                            <span class="text-gold font-semibold text-lg">$22</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Creamy burrata with 18-month aged prosciutto and arugula</p>
+                        <span class="text-sm text-gray-500">Contains: dairy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Courses -->
+            <div id="mains" class="menu-category hidden">
+                <h2 class="font-playfair text-4xl font-bold text-center mb-12 text-charcoal">Main Courses</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Wagyu Beef Tenderloin</h3>
+                            <span class="text-gold font-semibold text-lg">$85</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Grade A5 wagyu with roasted vegetables and red wine jus</p>
+                        <span class="text-sm text-gray-500">Contains: alcohol</span>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Chilean Sea Bass</h3>
+                            <span class="text-gold font-semibold text-lg">$48</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Miso-glazed sea bass with forbidden rice and bok choy</p>
+                        <span class="text-sm text-gray-500">Contains: fish, soy</span>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Duck Confit</h3>
+                            <span class="text-gold font-semibold text-lg">$42</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Slow-cooked duck leg with cherry gastrique and potato gratin</p>
+                        <span class="text-sm text-gray-500">Contains: dairy</span>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Truffle Risotto</h3>
+                            <span class="text-gold font-semibold text-lg">$38</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Arborio rice with black truffle, aged parmesan, and herbs</p>
+                        <span class="text-sm text-gray-500">Contains: dairy</span>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Rack of Lamb</h3>
+                            <span class="text-gold font-semibold text-lg">$52</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Herb-crusted rack with ratatouille and rosemary jus</p>
+                        <span class="text-sm text-gray-500">Contains: gluten</span>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Lobster Thermidor</h3>
+                            <span class="text-gold font-semibold text-lg">$62</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Maine lobster with cognac cream sauce and gruyère</p>
+                        <span class="text-sm text-gray-500">Contains: shellfish, dairy, alcohol</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desserts -->
+            <div id="desserts" class="menu-category hidden">
+                <h2 class="font-playfair text-4xl font-bold text-center mb-12 text-charcoal">Desserts</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Chocolate Soufflé</h3>
+                            <span class="text-gold font-semibold text-lg">$18</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Valrhona chocolate with vanilla bean ice cream and gold leaf</p>
+                        <span class="text-sm text-gray-500">Contains: eggs, dairy, gluten</span>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Crème Brûlée</h3>
+                            <span class="text-gold font-semibold text-lg">$14</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Classic vanilla custard with caramelized sugar and berries</p>
+                        <span class="text-sm text-gray-500">Contains: eggs, dairy</span>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Lemon Tart</h3>
+                            <span class="text-gold font-semibold text-lg">$16</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Meyer lemon curd with torched meringue and candied lemon</p>
+                        <span class="text-sm text-gray-500">Contains: eggs, dairy, gluten</span>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Tiramisu</h3>
+                            <span class="text-gold font-semibold text-lg">$15</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Traditional mascarpone layers with espresso and cocoa</p>
+                        <span class="text-sm text-gray-500">Contains: eggs, dairy, caffeine</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beverages -->
+            <div id="beverages" class="menu-category hidden">
+                <h2 class="font-playfair text-4xl font-bold text-center mb-12 text-charcoal">Beverages</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Lumière Signature Cocktail</h3>
+                            <span class="text-gold font-semibold text-lg">$16</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Premium gin with elderflower, cucumber, and champagne</p>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Artisan Coffee</h3>
+                            <span class="text-gold font-semibold text-lg">$8</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Single-origin Ethiopian beans, expertly roasted</p>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Fresh Juice Selection</h3>
+                            <span class="text-gold font-semibold text-lg">$7</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Orange, grapefruit, apple, or seasonal fruit blend</p>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Premium Tea Selection</h3>
+                            <span class="text-gold font-semibold text-lg">$6</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Earl Grey, Chamomile, Green Tea, or Oolong</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wine -->
+            <div id="wine" class="menu-category hidden">
+                <h2 class="font-playfair text-4xl font-bold text-center mb-12 text-charcoal">Wine Selection</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Château Margaux 2015</h3>
+                            <span class="text-gold font-semibold text-lg">$450</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Bordeaux red wine with exceptional complexity and elegance</p>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Dom Pérignon 2012</h3>
+                            <span class="text-gold font-semibold text-lg">$320</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Champagne with perfect balance and refined bubbles</p>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Cloudy Bay Sauvignon Blanc</h3>
+                            <span class="text-gold font-semibold text-lg">$85</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">New Zealand white wine with crisp citrus notes</p>
+                    </div>
+
+                    <div class="menu-item bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-playfair text-xl font-semibold">Opus One 2018</h3>
+                            <span class="text-gold font-semibold text-lg">$380</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Napa Valley Bordeaux blend with remarkable depth</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-charcoal text-white">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="font-playfair text-4xl md:text-5xl font-bold mb-6">
+                Ready to Dine?
+            </h2>
+            <p class="text-xl mb-8 text-gray-300">
+                Reserve your table and experience our exceptional cuisine tonight.
+            </p>
+            <a href="reservation.html" class="bg-gold hover:bg-gold/90 text-charcoal px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 inline-block">
+                Make Reservation
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-playfair text-2xl font-bold mb-4">Lumière</h3>
+                    <p class="text-gray-300 mb-4">Experience culinary excellence in the heart of the city.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="menu.html" class="hover:text-gold transition-colors">Menu</a></li>
+                        <li><a href="reservation.html" class="hover:text-gold transition-colors">Reservations</a></li>
+                        <li><a href="about.html" class="hover:text-gold transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-gold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>123 Gourmet Street</li>
+                        <li>New York, NY 10001</li>
+                        <li>(555) 123-4567</li>
+                        <li>hello@lumiere.com</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Hours</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Monday - Thursday: 5:30 PM - 10:00 PM</li>
+                        <li>Friday - Saturday: 5:30 PM - 11:00 PM</li>
+                        <li>Sunday: 5:00 PM - 9:30 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 Lumière Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function showCategory(category) {
+            // Hide all categories
+            document.querySelectorAll('.menu-category').forEach(cat => {
+                cat.classList.add('hidden');
+            });
+            
+            // Show selected category
+            document.getElementById(category).classList.remove('hidden');
+            
+            // Update tab styles
+            document.querySelectorAll('.menu-tab').forEach(tab => {
+                tab.classList.remove('bg-gold', 'text-white');
+                tab.classList.add('text-charcoal', 'hover:bg-gray-100');
+            });
+            
+            // Highlight active tab
+            event.target.classList.add('bg-gold', 'text-white');
+            event.target.classList.remove('text-charcoal', 'hover:bg-gray-100');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Lumière Restaurant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'gold': '#D4AF37',
+                        'gold-light': '#F7E7A3',
+                        'charcoal': '#2D2D2D',
+                        'warm-white': '#FEFCF8',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-warm-white text-charcoal">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="font-playfair text-2xl font-bold text-charcoal">Lumière</h1>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Home</a>
+                        <a href="menu.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Menu</a>
+                        <a href="about.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">About</a>
+                        <a href="gallery.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Gallery</a>
+                        <a href="reservation.html" class="nav-link text-charcoal hover:text-gold transition-colors duration-200 font-medium">Reservations</a>
+                        <a href="contact.html" class="nav-link text-gold font-medium">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-charcoal hover:text-gold focus:outline-none focus:text-gold">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Home</a>
+                <a href="menu.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Menu</a>
+                <a href="about.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">About</a>
+                <a href="gallery.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Gallery</a>
+                <a href="reservation.html" class="block px-3 py-2 text-charcoal hover:text-gold font-medium">Reservations</a>
+                <a href="contact.html" class="block px-3 py-2 text-gold font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-warm-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-playfair text-5xl md:text-6xl font-bold text-charcoal mb-6">
+                Contact Us
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                We'd love to hear from you. Get in touch with our team for reservations, events, or any inquiries
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold mb-2">Location</h3>
+                    <p class="text-gray-600">123 Gourmet Street<br>New York, NY 10001</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold mb-2">Phone</h3>
+                    <p class="text-gray-600">(555) 123-4567</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-xl font-semibold mb-2">Email</h3>
+                    <p class="text-gray-600">hello@lumiere.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Map Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h2 class="font-playfair text-3xl font-bold mb-6 text-charcoal">Send us a Message</h2>
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                <input type="text" id="name" name="name" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" id="email" name="email" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone"
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors">
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <select id="subject" name="subject" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors">
+                                <option value="">Select a subject</option>
+                                <option value="reservation">Reservation Inquiry</option>
+                                <option value="private-dining">Private Dining</option>
+                                <option value="events">Special Events</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="press">Press & Media</option>
+                                <option value="general">General Inquiry</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="6" required
+                                      placeholder="Tell us how we can help you..."
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors resize-none"></textarea>
+                        </div>
+
+                        <button type="submit"
+                                class="w-full bg-gold hover:bg-gold/90 text-charcoal font-semibold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02]">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Map & Hours -->
+                <div class="space-y-8">
+                    <!-- Map Placeholder -->
+                    <div class="bg-gray-300 rounded-2xl h-64 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" 
+                             alt="Restaurant location map" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+                            <div class="bg-white/90 px-4 py-2 rounded-lg">
+                                <p class="text-charcoal font-semibold">123 Gourmet Street, NYC</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hours & Info -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="font-playfair text-2xl font-bold mb-6 text-charcoal">Hours & Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-semibold mb-3 text-gold">Restaurant Hours</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex justify-between">
+                                        <span>Monday - Thursday</span>
+                                        <span>5:30 PM - 10:00 PM</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span>Friday - Saturday</span>
+                                        <span>5:30 PM - 11:00 PM</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span>Sunday</span>
+                                        <span>5:00 PM - 9:30 PM</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="font-semibold mb-3 text-gold">Reservation Hours</h4>
+                                <p class="text-gray-600">Monday - Sunday: 10:00 AM - 8:00 PM</p>
+                            </div>
+
+                            <div>
+                                <h4 class="font-semibold mb-3 text-gold">Parking</h4>
+                                <p class="text-gray-600">Complimentary valet parking available from 5:00 PM</p>
+                            </div>
+
+                            <div>
+                                <h4 class="font-semibold mb-3 text-gold">Accessibility</h4>
+                                <p class="text-gray-600">Fully wheelchair accessible with dedicated seating areas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-charcoal mb-4">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Quick answers to common questions about dining at Lumière
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <button class="faq-question w-full text-left flex justify-between items-center" onclick="toggleFaq(this)">
+                        <h3 class="font-playfair text-lg font-semibold text-charcoal">Do you accommodate dietary restrictions?</h3>
+                        <span class="faq-icon text-gold text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer hidden mt-4 text-gray-600">
+                        <p>Absolutely! We're happy to accommodate various dietary restrictions including vegetarian, vegan, gluten-free, and allergen-free options. Please inform us of any dietary needs when making your reservation.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <button class="faq-question w-full text-left flex justify-between items-center" onclick="toggleFaq(this)">
+                        <h3 class="font-playfair text-lg font-semibold text-charcoal">What is your dress code?</h3>
+                        <span class="faq-icon text-gold text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer hidden mt-4 text-gray-600">
+                        <p>We recommend smart casual to formal attire. Jackets are preferred for gentlemen, especially during dinner service. We want all our guests to feel comfortable while maintaining our elegant atmosphere.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <button class="faq-question w-full text-left flex justify-between items-center" onclick="toggleFaq(this)">
+                        <h3 class="font-playfair text-lg font-semibold text-charcoal">Do you offer private dining options?</h3>
+                        <span class="faq-icon text-gold text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer hidden mt-4 text-gray-600">
+                        <p>Yes! We offer several private dining options including our Chef's Table for up to 12 guests and private dining rooms for larger groups. Contact us to discuss your specific needs and menu preferences.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <button class="faq-question w-full text-left flex justify-between items-center" onclick="toggleFaq(this)">
+                        <h3 class="font-playfair text-lg font-semibold text-charcoal">How far in advance should I make a reservation?</h3>
+                        <span class="faq-icon text-gold text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer hidden mt-4 text-gray-600">
+                        <p>We recommend booking 2-4 weeks in advance, especially for weekend evenings and special occasions. However, we often have availability for last-minute reservations, so please call us even if you need a table sooner.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <button class="faq-question w-full text-left flex justify-between items-center" onclick="toggleFaq(this)">
+                        <h3 class="font-playfair text-lg font-semibold text-charcoal">Is parking available?</h3>
+                        <span class="faq-icon text-gold text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer hidden mt-4 text-gray-600">
+                        <p>Yes, we offer complimentary valet parking starting at 5:00 PM. Street parking and nearby parking garages are also available for your convenience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="contactSuccessModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3 class="font-playfair text-2xl font-bold mb-4 text-charcoal">Message Sent!</h3>
+            <p class="text-gray-600 mb-6">Thank you for contacting Lumière. We'll get back to you within 24 hours.</p>
+            <button onclick="closeContactModal()" class="bg-gold hover:bg-gold/90 text-charcoal px-6 py-2 rounded-full font-semibold">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-playfair text-2xl font-bold mb-4">Lumière</h3>
+                    <p class="text-gray-300 mb-4">Experience culinary excellence in the heart of the city.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="menu.html" class="hover:text-gold transition-colors">Menu</a></li>
+                        <li><a href="reservation.html" class="hover:text-gold transition-colors">Reservations</a></li>
+                        <li><a href="about.html" class="hover:text-gold transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-gold transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>123 Gourmet Street</li>
+                        <li>New York, NY 10001</li>
+                        <li>(555) 123-4567</li>
+                        <li>hello@lumiere.com</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Hours</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Monday - Thursday: 5:30 PM - 10:00 PM</li>
+                        <li>Friday - Saturday: 5:30 PM - 11:00 PM</li>
+                        <li>Sunday: 5:00 PM - 9:30 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 Lumière Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic form validation
+            const requiredFields = ['name', 'email', 'subject', 'message'];
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                const input = document.getElementById(field);
+                if (!input.value.trim()) {
+                    input.classList.add('border-red-500');
+                    isValid = false;
+                } else {
+                    input.classList.remove('border-red-500');
+                }
+            });
+            
+            if (isValid) {
+                showContactModal();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+        
+        function showContactModal() {
+            document.getElementById('contactSuccessModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeContactModal() {
+            document.getElementById('contactSuccessModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            document.getElementById('contactForm').reset();
+        }
+        
+        function toggleFaq(button) {
+            const answer = button.parentElement.querySelector('.faq-answer');
+            const icon = button.querySelector('.faq-icon');
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.textContent = '−';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                answer.classList.add('hidden');
+                icon.textContent = '+';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
+</body>
+</html>
